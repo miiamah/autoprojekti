@@ -12,6 +12,14 @@ i.info {
     margin-left: 10px;
 }
 
+i.input-file {
+    font-size: 200% !important;
+}
+
+.btn {
+    padding: 0 10px !important;
+}
+
 .header-font {
     font-family: 'Roboto', sans-serif;
 }
@@ -23,4 +31,14 @@ i.info {
 .number {
     font-size: 150% !important;
     font-weight: bold;
+}
+
+form {
+    width: 50%;
+}
+
+.waves-effect.waves-blue .waves-ripple {
+    /* The alpha value allows the text and background color
+    of the button to still show through. */
+    background-color: #e3f2fd;
 }
