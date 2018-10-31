@@ -1,9 +1,13 @@
+body {
+    background-color: #fafafa;
+}
+
 .brand-logo {
     font-family: 'Supermercado One', cursive;
     font-size: 300% !important;
 }
 
-i {
+i.info {
     font-size: 35px !important;
     margin-left: 10px;
 }
@@ -14,4 +18,9 @@ i {
 
 .normal-font{
     font-family: 'Open Sans', sans-serif;
+}
+
+.number {
+    font-size: 150% !important;
+    font-weight: bold;
 }
