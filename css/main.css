@@ -1,0 +1,17 @@
+.brand-logo {
+    font-family: 'Supermercado One', cursive;
+    font-size: 300% !important;
+}
+
+i {
+    font-size: 35px !important;
+    margin-left: 10px;
+}
+
+.header-font {
+    font-family: 'Roboto', sans-serif;
+}
+
+.normal-font{
+    font-family: 'Open Sans', sans-serif;
+}
