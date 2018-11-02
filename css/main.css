@@ -37,10 +37,10 @@ form {
     width: 50%;
 }
 
-.waves-effect.waves-blue .waves-ripple {
+.waves-effect.waves-pink .waves-ripple {
     /* The alpha value allows the text and background color
     of the button to still show through. */
-    background-color: #e3f2fd;
+    background-color: #fce4ec;
 }
 
 body {
@@ -65,19 +65,31 @@ main {
     font-weight: lighter;
 }
 
-header {
+.index-header {
     height: 250px;
     background-image: url(../pexels-photo-1182338.jpeg);
 }
 
+.lataa-header {
+    height: 70px;
+    background-image: url(../pexels-photo-1182338.jpeg);
+}
+
 .info2 {
-    position: absolute;
-    top: 180px;
-    left: 10px;
+    margin-right: 20px;
 }
 
 .projekti {
     position: absolute;
     left: 50px;
-    top: 70px;
+    top: 85px;
+}
+
+.projekti-lataa {
+    margin-left: 20px;
+}
+
+input.valid[type=text]:not(.browser-default) {
+    border-bottom: 1px solid #f50057 !important;
+    box-shadow: 0 1px 0 0 #f50057 !important;
 }
