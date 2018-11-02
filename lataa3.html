@@ -30,23 +30,11 @@
         <h5 class="header-font">
             Lataa
         </h5>
-        <form action="#">
-            <div class="file-field input-field">
-                <div class="btn pink accent-3">
-                    <i class="material-icons input-file">add</i>
-                    <input type="file">
-                </div>
-                <div class="file-path-wrapper">
-                    <input title="file" class="file-path validate" placeholder=".xlsx" type="text">
-                </div>
-                <span class="helper-text" data-error="wrong" data-success="right">Paina <span style="font-size: 20px;">+</span> tai vedä tiedosto tähän</span>
-                <a class="waves-effect waves-pink btn-flat right">lataa</a>
-            </div>
+        <form enctype="multipart/form-data">
+            <input id="upload" type=file name="files[]">
         </form>
     </div>
-    <form enctype="multipart/form-data">
-        <input id="upload" type=file name="files[]">
-    </form>
+
 
     <p id="demo"></p>
 </main>
