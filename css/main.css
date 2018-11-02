@@ -8,7 +8,7 @@ body {
 }
 
 i.info {
-    font-size: 35px !important;
+    font-size: 30px !important;
     margin-left: 10px;
 }
 
@@ -41,4 +41,43 @@ form {
     /* The alpha value allows the text and background color
     of the button to still show through. */
     background-color: #e3f2fd;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.col-card {
+    padding-left: 0 !important;
+}
+
+#footer {
+    padding: 20px 0 20px 0;
+}
+
+#footer-text {
+    font-weight: lighter;
+}
+
+header {
+    height: 250px;
+    background-image: url(../pexels-photo-1182338.jpeg);
+}
+
+.info2 {
+    position: absolute;
+    top: 180px;
+    left: 10px;
+}
+
+.projekti {
+    position: absolute;
+    left: 50px;
+    top: 70px;
 }
