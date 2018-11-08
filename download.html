@@ -22,8 +22,8 @@
 
 <body>
 <header class="lataa-header">
-    <a href="info2.html" class="brand-logo white-text right info2"><i class="material-icons info">info_outline</i></a>
-    <a href="index2.html" class="brand-logo projekti-lataa left white-text">Projekti</a>
+    <a href="info.html" class="brand-logo white-text right info2"><i class="material-icons info">info_outline</i></a>
+    <a href="index.html" class="brand-logo projekti-lataa left white-text">Projekti</a>
 </header>
 <main>
     <div class="container">
@@ -31,10 +31,18 @@
             Lataa
         </h5>
         <form enctype="multipart/form-data">
-            <input id="upload" type=file name="files[]">
+            <div class="file-field input-field">
+                <div class="btn blue accent-3">
+                    <i class="material-icons input-file">add</i>
+                    <input type="file" id="upload" name="file[]">
+                </div>
+                <div class="file-path-wrapper">
+                    <input title="file" class="file-path validate" placeholder=".xlsx" type="text">
+                </div>
+                <span class="helper-text" data-error="wrong" data-success="right">Paina <span style="font-size: 20px;">+</span> tai vedä tiedosto tähän</span>
+            </div>
         </form>
     </div>
-
 
     <p id="demo"></p>
 </main>

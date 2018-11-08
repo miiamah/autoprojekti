@@ -8,8 +8,8 @@ body {
 }
 
 i.info {
-    font-size: 35px !important;
-    margin-left: 10px;
+    font-size: 45px !important;
+    margin-top: 10px;
 }
 
 i.input-file {
@@ -68,10 +68,10 @@ form {
 }
 
 input.valid[type=text]:not(.browser-default) {
-    border-bottom: 1px solid #f50057 !important;
-    box-shadow: 0 1px 0 0 #f50057 !important;
+    border-bottom: 1px solid #2979ff !important;
+    box-shadow: 0 1px 0 0 #2979ff !important;
 }
 
 .bq-color {
-    border-left: 5px solid #f50057;
+    border-left: 5px solid #2979ff;
 }
