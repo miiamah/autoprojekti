@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
     <script defer src="js/main.js"></script>
 
 </head>
@@ -26,11 +27,18 @@
             Tervehdys
         </h5>
         <blockquote class="bq-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent venenatis libero vitae mattis dictum. Sed diam quam, posuere quis ullamcorper in, ultrices eget lacus. Duis fermentum augue in fermentum laoreet. Aliquam a purus justo. Praesent dictum molestie fringilla. Suspendisse euismod venenatis volutpat. Nullam ultricies erat pulvinar, molestie tortor quis, aliquam mauris. Nunc ultricies massa nibh, sed rutrum nulla dapibus a. Sed molestie ultricies fringilla.</blockquote>
-        <a href="download.html" class="waves-effect waves-light btn blue accent-3"><i class="material-icons small left">add</i>lataa</a>
+
+
+            <input id="txtEmail" type="email" placeholder="Sähköposti">
+            <input id="txtPassword" type="password" placeholder="Salasana">
+            <a id="btnLogin" class="waves-effect waves-light btn">Kirjaudu sisään</a><br>
+            <a id="btnSignUp" class="waves-effect waves-teal btn-flat">Luo tunnus</a>
+        <p id="warningText"></p>
+
 
     </div>
 </main>
 
 </body>
-
+    <script src="js/app2.js"></script>
 </html>
