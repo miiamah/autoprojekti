@@ -1,10 +1,15 @@
 body {
     background-color: #fafafa;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .brand-logo {
-    font-family: 'Supermercado One', cursive;;
+    font-family: 'Supermercado One', cursive;
     font-size: 300% !important;
+}
+
+.brand-logo:hover {
+    cursor: default;
 }
 
 i.info {
@@ -37,10 +42,18 @@ form {
     width: 50%;
 }
 
-.waves-effect.waves-pink .waves-ripple {
+#loginForm {
+    width: 30%;
+}
+
+#tervetuloatxt {
+    margin-top: 30px;
+}
+
+.waves-effect.waves-blue .waves-ripple {
     /* The alpha value allows the text and background color
     of the button to still show through. */
-    background-color: #fce4ec;
+    background-color: #e3f2fd;
 }
 
 .index-header {
@@ -72,6 +85,46 @@ input.valid[type=text]:not(.browser-default) {
     box-shadow: 0 1px 0 0 #2979ff !important;
 }
 
+#txtEmail:focus {
+    border-bottom: 1px solid #2979ff !important;
+    box-shadow: 0 1px 0 0 #2979ff !important;
+}
+
+#txtPassword:focus {
+    border-bottom: 1px solid #2979ff !important;
+    box-shadow: 0 1px 0 0 #2979ff !important;
+}
+
+#txtPassword {
+    margin-bottom: 15px;
+}
+
+#loginForm {
+    margin-top: 30px;
+}
+
 .bq-color {
     border-left: 5px solid #2979ff;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #bbdefb !important;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #2979ff !important;
+}
+
+.switch label .lever:before {
+    background-color: #2196f3 !important;
+    opacity: 0.15;
+}
+
+#warningText {
+    font-size: 75%;
+    color: red;
+}
+
+#modal2 {
+    width: 500px;
 }

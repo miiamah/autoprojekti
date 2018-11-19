@@ -12,33 +12,50 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
-    <script defer src="js/main.js"></script>
 
 </head>
 
 <body>
 <header class="index-header">
     <a href="index.html" class="brand-logo projekti white-text">Projekti</a>
-    <a href="info.html" class="brand-logo info2 right white-text"><i class="material-icons info">info_outline</i></a>
+    <a href="#modal1" class="brand-logo info2 right white-text modal-trigger"><i class="material-icons info">info_outline</i></a>
 </header>
 <main>
     <div class="container">
-        <h5 class="header-font">
-            Tervehdys
+        <h5 class="header-font" id="tervetuloatxt">
+            Tervetuloa
         </h5>
-        <blockquote class="bq-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent venenatis libero vitae mattis dictum. Sed diam quam, posuere quis ullamcorper in, ultrices eget lacus. Duis fermentum augue in fermentum laoreet. Aliquam a purus justo. Praesent dictum molestie fringilla. Suspendisse euismod venenatis volutpat. Nullam ultricies erat pulvinar, molestie tortor quis, aliquam mauris. Nunc ultricies massa nibh, sed rutrum nulla dapibus a. Sed molestie ultricies fringilla.</blockquote>
-
-
+        <form id="loginForm">
             <input id="txtEmail" type="email" placeholder="Sähköposti">
-            <input id="txtPassword" type="password" placeholder="Salasana">
-            <a id="btnLogin" class="waves-effect waves-light btn">Kirjaudu sisään</a><br>
-            <a id="btnSignUp" class="waves-effect waves-teal btn-flat">Luo tunnus</a>
-        <p id="warningText"></p>
+            <input id="txtPassword" type="password" placeholder="********">
+            <a id="btnLogin" class="waves-effect waves-light btn blue accent-3">Kirjaudu sisään</a>
+            <a id="btnSignUp" class="waves-effect waves-blue btn-flat">Luo tunnus</a>
+            <p id="warningText"></p>
+        </form>
 
 
+    </div>
+
+    <!-- Info Modal -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <i class="material-icons modal-close right">close</i>
+            <h4 class="header-font">Info</h4>
+            <blockquote class="normal-font bq-color">
+                Tämä sivusto on tehty kouluprojektina Metropoliassa osana Mediapalvelut-projekti kurssia.<br>
+                Sivuston ideana on helpottaa ja visualisoida VW hybridi autojen kulutuksen ja käytön seurantaa.<br>
+                Alla lyhyet ohjeet sivuston käyttöön:
+            </blockquote>
+            <p>
+                <span class="blue-text text-accent-3" style="font-size: 130%">1.</span> Kirjaudu sisään tai luo tunnus<br>
+                <span class="blue-text text-accent-3" style="font-size: 130%">2.</span> Lataa excel tiedosto, jossa on vain ajo data. Alkuperäinen VW excel ei toimi<br>
+                <span class="blue-text text-accent-3" style="font-size: 130%">3.</span>
+            </p>
+        </div>
     </div>
 </main>
 
 </body>
-    <script src="js/app2.js"></script>
+    <script src="js/app.js"></script>
+    <script defer src="js/main.js"></script>
 </html>

@@ -1,3 +1,10 @@
+// Modal function
+document.addEventListener('DOMContentLoaded', function() {
+    const elems = document.querySelectorAll('.modal');
+    const instances = M.Modal.init(elems);
+});
+
+
 var ExcelToJSON = function () {
 
     this.parseExcel = function (file) {
