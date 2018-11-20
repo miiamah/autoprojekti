@@ -35,7 +35,7 @@
             <div class="file-field input-field">
                 <div class="btn blue accent-3" onclick="document.getElementById('upload').click()">
                     <i class="material-icons input-file">add</i>
-                    <input type="file" id="upload" name="file[]">
+                    <input type="file" id="upload" name="files[]">
                 </div>
                 <div class="file-path-wrapper">
                     <input title="file" class="file-path validate" placeholder=".xlsx" type="text">
@@ -43,7 +43,7 @@
                 <span class="helper-text" data-error="wrong" data-success="right">Paina <span style="font-size: 20px;">+</span> tai vedä tiedosto tähän</span>
             </div>
         </form>
-        <!-- Switch -->
+        <!-- Switch for colorblind mode -->
         <div class="switch">
             <label>
                 Väri
@@ -51,9 +51,47 @@
                 <span class="lever"></span>
             </label>
         </div>
-    </div>
 
-    <p id="demo"></p>
+        <div class="input-field" style="width: 200px;">
+            <form id="inputForm" onsubmit="searchData();return false;">
+                <select title="valinta" id="valitseKuukausi" class="browser-default">
+                </select>
+                <input type="submit" value="Hae">
+            </form>
+        </div>
+
+        <h6 class="normal-font" id="ajetut_km"></h6>
+
+        <table class="columns">
+            <tr>
+                <td>
+                    <div id="trip_chart_div"></div>
+                </td>
+                <td>
+                    <div id="driven_km_chart_div"></div>
+                </td>
+            </tr>
+        </table>
+        <table class="columns">
+            <tr>
+                <td>
+                    <div id="consumption_chart_div"></div>
+                </td>
+            </tr>
+        </table>
+        <table class="columns">
+            <tr>
+                <td>
+                    <div id="gas_to_km_chart_div"></div>
+                </td>
+            </tr>
+        </table>
+        <table class="columns">
+            <td>
+                <div id="km_histogram_div"></div>
+            </td>
+        </table>
+    </div>
 
     <!-- Info Modal-->
     <div id="modal1" class="modal">

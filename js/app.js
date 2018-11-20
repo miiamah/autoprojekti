@@ -16,7 +16,6 @@
     const btnLogin = document.getElementById('btnLogin');
     const btnSignUp = document.getElementById('btnSignUp');
     const warningText = document.getElementById('warningText');
-    const loginForm = document.getElementById('loginForm');
 
     // Add login event
     btnLogin.addEventListener('click', (evt) => {

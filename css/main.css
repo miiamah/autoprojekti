@@ -8,7 +8,7 @@ body {
     font-size: 300% !important;
 }
 
-.brand-logo:hover {
+.projekti:hover {
     cursor: default;
 }
 
@@ -127,4 +127,8 @@ input.valid[type=text]:not(.browser-default) {
 
 #modal2 {
     width: 500px;
+}
+
+table {
+    border-collapse: unset !important;
 }
