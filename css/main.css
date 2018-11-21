@@ -58,12 +58,12 @@ form {
 
 .index-header {
     height: 250px;
-    background-image: url(../pexels-photo-1182338.jpeg);
+    background-image: url(../testi2.png);
 }
 
 .lataa-header {
     height: 70px;
-    background-image: url(../pexels-photo-1182338.jpeg);
+    background-image: url(../testi2.png);
 }
 
 .info2 {
@@ -131,4 +131,9 @@ input.valid[type=text]:not(.browser-default) {
 
 table {
     border-collapse: unset !important;
+}
+
+.backdrop {
+    background-color: red;
+    opacity: 0.5;
 }

@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function drawKmHistogram() {
     data = new google.visualization.DataTable();
 
-    data.addColumn('number', 'Matka');
+    data.addColumn('number', 'Matkan pituus');
 
     for (let i = 0; i < taulukko2.length; i++) {
         data.addRow([taulukko2[i][3]], );
