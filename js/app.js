@@ -17,6 +17,29 @@
     const btnSignUp = document.getElementById('btnSignUp');
     const warningText = document.getElementById('warningText');
 
+    const Gbutton = document.getElementById('btnGoogle');
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+//Google kirjautuminen
+    Gbutton.addEventListener('click', (evt) => {
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            // ...
+        }).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            // ...
+        });
+    });
+
     // Add login event
     btnLogin.addEventListener('click', (evt) => {
         // Get email and password

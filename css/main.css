@@ -38,12 +38,12 @@ i.input-file {
     font-weight: bold;
 }
 
-form {
-    width: 50%;
+.login {
+    padding: 0 !important;
 }
 
-#loginForm {
-    width: 30%;
+#uploadForm {
+    width: 50%;
 }
 
 #tervetuloatxt {

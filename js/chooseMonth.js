@@ -6,7 +6,7 @@ bensataulukko = [];
 uusibensataulukko = [];
 taulukkoReduced = [];
 
-// Select function
+// Select month function
 document.addEventListener('DOMContentLoaded', function() {
     const elems = document.querySelectorAll('select');
     const instances = M.FormSelect.init(elems);
@@ -20,10 +20,12 @@ document.addEventListener('DOMContentLoaded', function () {
             color1 = '#190101';
             color2 = '#a8a8a8';
             color3 = '#190101';
+            searchData()
         } else {
             color1 = '#1760d6';
             color2 = '#43d317';
             color3 = '#190101';
+            searchData()
         }
     });
 });
@@ -231,6 +233,10 @@ function fetchData(searchInput) {
     let sahkoaKulutettu = 0;
     let saasto = 0;
     variables = [];
+    bensataulukko = [];
+    uusibensataulukko = [];
+    taulukkoReduced = [];
+    taulukko2 = [];
     console.log(searchInput);
     var userID = firebase.auth().currentUser.uid;
     firebase.database().ref(userID + "/" + searchInput + "/").once("value", function (snapshot) {
