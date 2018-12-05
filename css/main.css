@@ -3,9 +3,16 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+img {
+    height: 82px;
+    width: 63px;
+    position: absolute;
+    top: 70px;
+    left: 50px;
+}
+
 .brand-logo {
     font-family: 'Supermercado One', cursive;
-    font-size: 300% !important;
 }
 
 .projekti:hover {
@@ -29,8 +36,12 @@ i.input-file {
     font-family: 'Roboto', sans-serif;
 }
 
-.normal-font{
+.normal-font {
     font-family: 'Open Sans', sans-serif;
+}
+
+#btnLogOut {
+    font-weight: bolder !important;
 }
 
 .number {
@@ -38,12 +49,12 @@ i.input-file {
     font-weight: bold;
 }
 
-.login {
-    padding: 0 !important;
+form {
+    width: 50%;
 }
 
-#uploadForm {
-    width: 50%;
+#loginForm {
+    width: 30%;
 }
 
 #tervetuloatxt {
@@ -58,12 +69,12 @@ i.input-file {
 
 .index-header {
     height: 250px;
-    background-image: url(../testi2.png);
+    background-color: #050837;
 }
 
 .lataa-header {
     height: 70px;
-    background-image: url(../testi2.png);
+    background-color: #050837;
 }
 
 .info2 {
@@ -72,12 +83,14 @@ i.input-file {
 
 .projekti {
     position: absolute;
-    left: 50px;
-    top: 85px;
+    font-size: 350% !important;
+    left: 150px;
+    top: 75px;
 }
 
 .projekti-lataa {
     margin-left: 20px;
+    font-size: 300% !important;
 }
 
 input.valid[type=text]:not(.browser-default) {
@@ -129,11 +142,252 @@ input.valid[type=text]:not(.browser-default) {
     width: 500px;
 }
 
+#modal3 {
+    width: 620px;
+}
+
 table {
     border-collapse: unset !important;
 }
 
-.backdrop {
-    background-color: red;
-    opacity: 0.5;
+#colorSwitch {
+    margin-top: 25px;
 }
+
+.input-field {
+    padding: 0 !important;
+    margin: 15px 10px 0 0 !important;
+}
+
+.modal-input-field {
+    width: 350px;
+}
+
+.usermodal {
+    padding: 13px 10px 0 10px !important;
+}
+
+.leasing-form {
+    padding-left: 0 !important;
+}
+
+#sallitut-km {
+    margin-left: 10px;
+}
+
+#liisaus-alkanut {
+    margin-left: 10px;
+}
+
+#liisaus-loppuu {
+    margin-left: 10px;
+}
+
+#btnDeleteLeasing {
+    padding: 0 7px 0 10px !important;
+    margin-top: 15px;
+    font-size: 12px !important;
+}
+
+.usermodaldiv {
+    margin: 0 !important;
+}
+
+.middlediv {
+    margin-bottom: 5px !important;
+}
+
+input[type=date]:not(.browser-default):focus:not([readonly])+label {
+    color: #2979ff !important;
+}
+
+input[type=date]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #2979ff !important;
+    box-shadow: 0 1px 0 0 #2979ff !important;
+}
+
+input[type=number]:not(.browser-default):focus:not([readonly])+label {
+    color: #2979ff !important;
+}
+
+input[type=number]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #2979ff !important;
+    box-shadow: 0 1px 0 0 #2979ff !important;
+}
+
+.hakunappi {
+    margin: 0 11px 0 11px;
+}
+
+#ajetut_km {
+    line-height: 130%;
+    padding: 0 !important;
+}
+
+.lisaaExcel {
+    height: 41px !important;
+    width: 41px !important;
+    padding: 0 !important;
+    margin-top: 16px;
+}
+
+.lisaaExcelIcon {
+    font-size: 200% !important;
+    margin-top: 3px;
+}
+
+.lisaaCol {
+    margin-right: 20px;
+    padding-left: 0 !important;
+}
+
+.selectInput {
+    width: 100px;
+}
+
+.excelOhjeet {
+    margin-top: 10px;
+}
+
+.cb-info {
+    margin-top: 25px;
+    padding: 0 !important;
+}
+
+#ajankohta {
+    margin: 35px 0 20px 0;
+}
+
+.kysymysInfo {
+    font-size: 130%;
+}
+
+.excelOhjeet1 {
+    margin-top: 20px;
+}
+
+#latausformi {
+    margin: 17px 0 10px 0;
+    padding: 0 !important;
+}
+
+.showOthersNappi {
+    margin-top: 40px !important;
+    padding-left: 50px !important;
+}
+
+#nopeusChart svg g text {
+    font-size: 15px;
+}
+
+
+/* ALLAOLEVAT ON LOADING YMPYRÄLLE */
+
+.lds-roller {
+    position: absolute;
+    z-index: 15;
+    top: 45%;
+    left: 45%;
+    width: 64px;
+    height: 64px;
+}
+
+.lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 32px 32px;
+}
+
+.lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #2979ff;
+    margin: -3px 0 0 -3px;
+}
+
+.lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+
+.lds-roller div:nth-child(1):after {
+    top: 50px;
+    left: 50px;
+}
+
+.lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+
+.lds-roller div:nth-child(2):after {
+    top: 54px;
+    left: 45px;
+}
+
+.lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+
+.lds-roller div:nth-child(3):after {
+    top: 57px;
+    left: 39px;
+}
+
+.lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+
+.lds-roller div:nth-child(4):after {
+    top: 58px;
+    left: 32px;
+}
+
+.lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+
+.lds-roller div:nth-child(5):after {
+    top: 57px;
+    left: 25px;
+}
+
+.lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+
+.lds-roller div:nth-child(6):after {
+    top: 54px;
+    left: 19px;
+}
+
+.lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+
+.lds-roller div:nth-child(7):after {
+    top: 50px;
+    left: 14px;
+}
+
+.lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+
+.lds-roller div:nth-child(8):after {
+    top: 45px;
+    left: 10px;
+}
+
+@keyframes lds-roller {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* LOPPU TÄHÄN ASTI */

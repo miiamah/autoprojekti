@@ -1,13 +1,15 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="utf-8">
-    <title>Projekti</title>
+    <title>Voltti Statistics</title>
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Roboto|Supermercado+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="sahkologo.png" type="image/gif" sizes="16x16">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -16,127 +18,253 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
     <script src="js/main.js"></script>
+
+
 </head>
 
 <body>
-<header class="lataa-header">
-    <a href="#modal1" class="brand-logo white-text modal-trigger right info2"><i class="material-icons info">info_outline</i></a>
-    <a href="#modal2" class="white-text modal-trigger right info2"><i class="material-icons info">account_circle</i></a>
-    <a class="brand-logo projekti-lataa left white-text">Projekti</a>
-</header>
-<main>
-    <a id="btnLogOut" class="waves-effect waves-blue btn-flat right">Kirjaudu ulos</a>
-    <div class="container">
-        <h5 class="header-font">
-            Lataa
-        </h5>
 
-        <form enctype="multipart/form-data">
-            <div class="file-field input-field">
-                <div class="btn blue accent-3" onclick="document.getElementById('upload').click()">
-                    <i class="material-icons input-file">add</i>
-                    <input type="file" id="upload" name="files[]">
+    <header class="lataa-header">
+        <a href="#modal1" class="brand-logo white-text modal-trigger right info2"><i class="material-icons info">info_outline</i></a>
+        <a href="#modal2" class="white-text modal-trigger right info2"><i class="material-icons info">account_circle</i></a>
+        <a class="brand-logo projekti-lataa left white-text">Voltti Stats</a>
+    </header>
+
+
+
+    <main>
+        <a id="btnLogOut" class="waves-effect waves-blue btn-flat right">Kirjaudu ulos</a>
+
+        <div class="container">
+            <h5 id="logOutEiLiiku"></h5>
+
+            <div id="latausosio">
+                <h5 class="header-font">Lataa</h5>
+                <div class="row">
+                    <form enctype="multipart/form-data" id="latausformi" class="col s6">
+                        <div class="file-field input-field">
+                            <div class="btn blue accent-3" id="upload2">
+                                <i class="material-icons input-file">add</i>
+                                <input type="file" name="files[]">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input title="file" class="file-path validate" placeholder=".xlsx" type="text">
+                            </div>
+                            <span class="helper-text" data-error="wrong" data-success="right">Paina <span style="font-size: 20px;">+</span> tai vedä tiedosto tähän</span>
+                        </div>
+                    </form>
+                    <div class="col s6 showOthersNappi">
+                        <a id="showOthers" class="btn-floating waves-effect waves-light blue accent-3" onclick="showOthers()"><i class="material-icons">arrow_forward</i></a>
+                    </div>
                 </div>
-                <div class="file-path-wrapper">
-                    <input title="file" class="file-path validate" placeholder=".xlsx" type="text">
+                <div class="row">
+                    <h6 class="header-font excelOhjeet1">Ohjeet oikeaan excel tiedostoon</h6>
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/AZie7siE2_Q?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <span class="helper-text" data-error="wrong" data-success="right">Paina <span style="font-size: 20px;">+</span> tai vedä tiedosto tähän</span>
             </div>
-        </form>
 
-        <!-- Switch for colorblind mode -->
-        <div class="switch">
-            <label>
-                Väri
-                <input type="checkbox">
-                <span class="lever"></span>
-            </label>
+            <div id="loadingRoller" class="lds-roller">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <div id="inputForm" style="visibility: hidden" class="row">
+                <h5 id="logOutEiLiiku2"></h5>
+
+                <div class="col lisaaCol">
+                    <a href="#modal3" class="waves-effect waves-light btn blue accent-3 lisaaExcel modal-trigger"><i class="material-icons lisaaExcelIcon">add</i></a>
+                </div>
+                <!-- Choose Month to show -->
+                <div class="input-field col" style="width: 120px;">
+                    <form id="inputForm" onsubmit="searchData();return false;" style="width: 100px;">
+                        <select title="Valitse kuukausi" id="valitseKuukausi" class="browser-default">
+                            <option id="kuukausivalue" value="null">Kuukausi</option>
+                        </select>
+                        <input style="margin:5px 0 0 27px" type="submit" value="Hae">
+                    </form>
+                </div>
+
+                <!-- Choose Year to show -->
+                <div class="input-field col" id="input-field col" style="width: 120px;">
+                    <form id="yearInputFrom" onsubmit="searchYearlyData();return false;" style="width: 100px;">
+                        <select title="Valitse vuosi" id="valitseVuosi" class="browser-default">
+                            <option id="vuosivalue" value="null">Vuosi</option>
+                        </select>
+                        <input style="margin:5px 0 0 27px" type="submit" value="Hae">
+                    </form>
+                </div>
+
+
+                <!-- Switch for colorblind mode -->
+                <div class="col" id="colorSwitch">
+                    <div class="switch">
+                        <label>
+                            Värit
+                            <input type="checkbox" checked="yes">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <h5 id="ajankohtavuosi"></h5>
+            <h5 id="ajankohtakuukausi"></h5>
+            <div class="row">
+                <h6 class="normal-font col s4" id="ajetut_km"></h6>
+                <h5 id="clockdiv" class="col s4 offset-s4 header-font"></h5>
+            </div>
+            <table class="columns">
+                <tr>
+                    <td>
+                        <div id="leasing_div"></div>
+                    </td>
+                </tr>
+            </table>
+
+
+
+
+            <table class="columns">
+                <tr>
+                    <td>
+                        <div id="trip_chart_div"></div>
+                    </td>
+                    <td>
+                        <div id="driven_km_chart_div"></div>
+                    </td>
+                </tr>
+            </table>
+            <table class="columns">
+                <tr>
+                    <td>
+                        <div id="consumption_chart_div"></div>
+                    </td>
+                </tr>
+            </table>
+            <table class="columns">
+                <tr>
+                    <td>
+                        <div id="gas_to_km_chart_div"></div>
+                    </td>
+                </tr>
+            </table>
+            <table class="columns">
+                <tr>
+                    <td>
+                        <div id="km_histogram_div"></div>
+                    </td>
+                </tr>
+            </table>
+            <table class="center">
+                <tr>
+                    <td>
+                        <div id="nopeusChart" style="width: 500px; height: 220px;"></div>
+                    </td>
+                </tr>
+            </table>
         </div>
 
-        <div class="input-field" style="width: 200px;">
-            <form id="inputForm" onsubmit="searchData();return false;">
-                <select title="valinta" id="valitseKuukausi" class="browser-default">
-                </select>
-                <input type="submit" value="Hae">
-            </form>
+        <!-- Info Modal-->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <i class="material-icons modal-close right">close</i>
+                <h4 class="header-font">Info</h4>
+                <blockquote class="normal-font bq-color">
+                    Tämä sivusto on tehty kouluprojektina Metropoliassa osana Mediapalvelut-projekti kurssia.
+                    <br> Sivuston ideana on helpottaa ja visualisoida VW hybridi autojen kulutuksen ja käytön seurantaa.
+                </blockquote>
+                <blockquote class="normal-font bq-color">
+                    <h6 class="header-font bold kysymysInfo">Säästetty?</h6> Jos kaikki kilometrit olisi ajettu bensa-autolla verrattuna hybridi autoon
+                    <br>Oletuksena bensan hinta 1,5€/litra, sähkön hinta 0,075€ ja bensan keskikulutus 6,5 litraa/100km
+                    <h6 class="header-font bold kysymysInfo">Käytetty?</h6> Kuinka paljon käytetty rahaa bensaan ja sähköön yhteensä
+                    <h6 class="header-font bold kysymysInfo">Sähkön kulutus bensalitroina?</h6> 9 kWh vastaa 1 litraa bensaa
+                </blockquote>
+            </div>
         </div>
 
-        <h6 class="normal-font" id="ajetut_km"></h6>
+        <!-- User account modal -->
+        <div id="modal2" class="modal">
+            <div class="modal-content usermodal">
+                <i class="material-icons modal-close right">close</i>
+                <h4 class="header-font">Käyttäjä</h4>
+                <div class="row usermodaldiv">
+                    <form class="col s12 leasing-form">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="sallitut-km" type="number" class="validate">
+                                <label for="sallitut-km">Maksimi km määrä</label>
+                            </div>
+                        </div>
+                        <div class="row middlediv">
+                            <div class="input-field col s6">
+                                <input id="liisaus-alkanut" type="date" class="validate">
+                                <label for="liisaus-alkanut">Leasing alkanut</label>
+                            </div>
+                            <a id="btnSave" class="waves-effect waves-blue btn blue accent-3 white-text right">Tallenna tiedot</a>
+                            <a id="btnDeleteLeasing" class="red-text btn-flat right">Poista leasing tiedot</a>
 
-        <table class="columns">
-            <tr>
-                <td>
-                    <div id="trip_chart_div"></div>
-                </td>
-                <td>
-                    <div id="driven_km_chart_div"></div>
-                </td>
-            </tr>
-        </table>
-        <table class="columns">
-            <tr>
-                <td>
-                    <div id="consumption_chart_div"></div>
-                </td>
-            </tr>
-        </table>
-        <table class="columns">
-            <tr>
-                <td>
-                    <div id="gas_to_km_chart_div"></div>
-                </td>
-            </tr>
-        </table>
-        <table class="columns">
-            <tr>
-                <td>
-                    <div id="km_histogram_div"></div>
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    <!-- Info Modal-->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <i class="material-icons modal-close right">close</i>
-            <h4 class="header-font">Info</h4>
-            <blockquote class="normal-font bq-color">
-                Tämä sivusto on tehty kouluprojektina Metropoliassa osana Mediapalvelut-projekti kurssia.<br>
-                Sivuston ideana on helpottaa ja visualisoida VW hybridi autojen kulutuksen ja käytön seurantaa.<br>
-                Alla lyhyet ohjeet sivuston käyttöön:
-            </blockquote>
-            <p>
-                <span class="blue-text text-accent-3" style="font-size: 130%">1.</span> Kirjaudu sisään tai luo tunnus<br>
-                <span class="blue-text text-accent-3" style="font-size: 130%">2.</span> Lataa excel tiedosto<br>
-                <span class="blue-text text-accent-3" style="font-size: 130%">3.</span> Tarkastele kuvaajia
-            </p>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="liisaus-loppuu" type="date" class="validate">
+                                <label for="liisaus-loppuu">Leasing loppuu</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a id="remove-user" class="waves-effect waves-light btn red white-text right">Poista käyttäjä</a>
+                <a id="remove-all" class="waves-effect waves-light btn red white-text left">Poista kaikki ajotiedot</a>
+            </div>
         </div>
-    </div>
 
-    <!-- User account modal -->
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <i class="material-icons modal-close right">close</i>
-            <h4 class="header-font">Käyttäjä</h4>
-            <p>A bunch of text</p>
+
+        <!-- Load excel modal -->
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <i class="material-icons modal-close right">close</i>
+                <h5 class="header-font">Lataa uusi excel</h5>
+
+                <form enctype="multipart/form-data">
+                    <div class="file-field input-field modal-input-field">
+                        <div class="btn blue accent-3" id="upload">
+                            <i class="material-icons input-file">add</i>
+                            <input type="file" name="files[]">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input title="file" class="file-path validate" placeholder=".xlsx" type="text">
+                        </div>
+                        <span class="helper-text" data-error="wrong" data-success="right">Paina <span style="font-size: 20px;">+</span> tai vedä tiedosto tähän</span>
+                    </div>
+                </form>
+                <h6 class="header-font excelOhjeet">Ohjeet oikeaan excel tiedostoon</h6>
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/AZie7siE2_Q?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
-        <div class="modal-footer">
-            <a id="remove-user" class="waves-effect waves-light btn red white-text right">Poista käyttäjä</a>
 
-        </div>
-    </div>
 
-</main>
-<script>
-    document.getElementById('upload').addEventListener('change', handleFileSelect, false);
-</script>
-<script type="text/javascript">
-    // Load Charts and the corechart package.
-    google.charts.load('current', {'packages': ['corechart']});
-</script>
-<script src="js/app2.js"></script>
-<script src="js/chooseMonth.js"></script>
+    </main>
+
+    <script>
+        document.getElementById('upload').addEventListener('change', handleFileSelect, false);
+        document.getElementById('upload2').addEventListener('change', handleFileSelect, false);
+    </script>
+    <script type="text/javascript">
+        // Load Charts and the corechart package.
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+    </script>
+    <script src="js/app2.js"></script>
+    <script src="js/chooseMonth.js"></script>
+
 </body>
 
 </html>

@@ -10,37 +10,15 @@
     };
     firebase.initializeApp(config);
 
-    // Get elements by id
+    // Hae elementit
     const txtEmail = document.getElementById('txtEmail');
     const txtPassword = document.getElementById('txtPassword');
     const btnLogin = document.getElementById('btnLogin');
     const btnSignUp = document.getElementById('btnSignUp');
     const warningText = document.getElementById('warningText');
 
-    const Gbutton = document.getElementById('btnGoogle');
-    var provider = new firebase.auth.GoogleAuthProvider();
 
-//Google kirjautuminen
-    Gbutton.addEventListener('click', (evt) => {
-        firebase.auth().signInWithPopup(provider).then(function(result) {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            var token = result.credential.accessToken;
-            // The signed-in user info.
-            var user = result.user;
-            // ...
-        }).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-            // ...
-        });
-    });
-
-    // Add login event
+    // Kirjaudu sisään
     btnLogin.addEventListener('click', (evt) => {
         // Get email and password
         const email = txtEmail.value;
@@ -63,19 +41,19 @@
         });
     });
 
-    // Add signup event
+    // Luo käyttäjätili
     btnSignUp.addEventListener('click', (evt) => {
-        // Get email and password
+        // Hae email ja salasana
         const email = txtEmail.value;
         const password = txtPassword.value;
         const auth = firebase.auth();
-        // Sign up
+        // Kirjaudu sisään
         const promise = auth.createUserWithEmailAndPassword(email, password);
         promise.catch(e => {
             console.log(e.message);
-            // Show warning messages + translate to Finnish
+            // Näyttää varoitusviestit käännettynä suomeksi
             if (e.message == "The email address is badly formatted.") {
-                warningText.innerHTML = "Sähköposti ei kelpaa";
+                warningText.innerHTML = "Täytä sähköposti ja salasana kentät";
             } else if (e.message == "Password should be at least 6 characters") {
                 warningText.innerHTML = "Salasanan täytyy olla vähintään 6 merkkiä pitkä";
             } else if (e.message == "The email address is already in use by another account.") {
@@ -88,14 +66,12 @@
         });
     });
 
-    // Add realtime listener
+    //Reaaliaikainen kuuntelija sille onko käyttäjä kirjautunut vai ei
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
             console.log(firebaseUser);
-            // Redirect to upload page after login
+            //Redirect käyttäjän upload.html sivulle
             window.location.href = "upload.html";
-        } else {
-            console.log('not logged in');
         }
     });
 
